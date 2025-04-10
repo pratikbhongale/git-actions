@@ -4,6 +4,7 @@ on:
     push:        #event
         branches:
             - master
+            - test
 
     
 jobs:
