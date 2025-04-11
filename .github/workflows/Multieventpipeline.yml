@@ -1,0 +1,27 @@
+name: "Multi-event pipeline /workflow"  # name of the pipeline
+
+on:
+    push:        #event
+        branches:
+            - master
+            - test
+    pull_request:
+                 branches:
+                     - master
+    workflow_dispatch:
+    
+jobs:
+    on-push:  #job 1
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on master push"
+              run: echo "running on master push"
+
+    on-pull-request:   # job 2
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on pul reuest"
+              run: echo "running on pull request"
+
