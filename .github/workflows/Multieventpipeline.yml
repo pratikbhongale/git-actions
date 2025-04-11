@@ -25,3 +25,10 @@ jobs:
             - name: "Running on pul reuest"
               run: echo "running on pull request"
 
+
+    on-workflow-dispatch:
+        if: github.event_name == 'workflow_dispatch'
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Running on workflow Dispatch"
+              run: echo "Running on workflow Dispatch"
